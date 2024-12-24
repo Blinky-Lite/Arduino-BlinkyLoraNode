@@ -1,0 +1,21 @@
+#######################################
+# Syntax Coloring Map For BlinkyPicoW
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BlinkyLoraNode	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin                   KEYWORD2
+retrieveGatewayData     KEYWORD2
+publishNodeData         KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

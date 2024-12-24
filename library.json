@@ -1,0 +1,17 @@
+{
+    "name": "BlinkyLoraNode",
+    "keywords": "iot, pico, lora",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Blinky-Lite/Arduino-BlinkyLoraNode"
+    },
+    "version": "1.0",
+    "examples": "examples/*/*.ino",
+    "frameworks": "arduino",
+    "platforms": [
+        "atmelavr",
+        "espressif8266",
+        "espressif32"
+    ]
+}
