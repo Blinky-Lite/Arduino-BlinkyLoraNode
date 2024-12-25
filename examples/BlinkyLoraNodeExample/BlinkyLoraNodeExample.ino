@@ -1,8 +1,8 @@
-bool core1_separate_stack = true;
+#define NODEADDRESS 11      // Need to change this!
+#define GATEWAYADDRESS 10   // Need to change this!
+
 #define BLINKY_DIAG         false
-#define NODE_DIAG         false
-#define NODEADDRESS 11
-#define GATEWAYADDRESS 10
+#define NODE_DIAG           false
 #define CHSPIN 17           // LoRa radio chip select
 #define RSTPIN 14           // LoRa radio reset
 #define IRQPIN 15           // LoRa radio IRQ
@@ -10,6 +10,7 @@ bool core1_separate_stack = true;
 #define LORSPF 9
 #define LORFRQ 868E6
 
+bool core1_separate_stack = true;
 #include <BlinkyLoraNode.h>
 
 unsigned long lastPublishTime;
