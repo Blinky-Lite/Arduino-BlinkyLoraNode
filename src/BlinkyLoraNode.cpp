@@ -108,17 +108,15 @@ boolean BlinkyLoraNodeClass::publishNodeData(uint8_t* pnodeData, boolean forceAr
 }
 void BlinkyLoraNodeClass::beginSendingLoraData() 
 {
-  if (_waitingForCad) return;
+  if (!_nodeHasDataToRead) return;
   BlinkyLoraNodeClass::txMode();                      // set tx mode
   LoRa.beginPacket();                                 // start packet
   LoRa.channelActivityDetection();
-  _waitingForCad = true;
 }
 void BlinkyLoraNodeClass::finishSendingLoraData()
 {
   LoRa.write(_pnodeDataSend, _sizeOfTransferData);    // add payload
   LoRa.endPacket(true);                               // finish packet and send it
-  _waitingForCad = false;
  _nodeHasDataToRead = false;
 }
 void BlinkyLoraNodeClass::receiveData(int packetSize)
@@ -225,7 +223,12 @@ void BlinkyLoraNodeClass::onLoraTxDone()
 }
 void BlinkyLoraNodeClass::onCadDone(bool signalDetected) 
 {
-  if (signalDetected) return;
+  if (signalDetected)
+  {
+    delay(10);
+    BlinkyLoraNode.beginSendingLoraData();
+    return;
+  }
   BlinkyLoraNode.finishSendingLoraData();
 }
 

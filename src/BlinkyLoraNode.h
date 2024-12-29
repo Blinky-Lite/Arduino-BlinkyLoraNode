@@ -37,7 +37,6 @@ class BlinkyLoraNodeClass
     uint8_t*            _pgatewayDataRecv = nullptr;
     volatile boolean    _gatewayHasDataToRead = false;
     volatile boolean    _nodeHasDataToRead = false;
-    boolean             _waitingForCad = false;
     void                receiveData(int packetSize);
 
   public:
