@@ -37,6 +37,7 @@ class BlinkyLoraNodeClass
     uint8_t*            _pgatewayDataRecv = nullptr;
     volatile boolean    _gatewayHasDataToRead = false;
     volatile boolean    _nodeHasDataToRead = false;
+    boolean             _waitingForCad = false;
     void                receiveData(int packetSize);
 
   public:
@@ -48,7 +49,10 @@ class BlinkyLoraNodeClass
     static void     onLoRaReceive(int packetSize);
     static void     rxMode();
     static void     txMode();
-    void            sendMessage();
+    static void     onCadDone(bool signalDetected);
+    void            beginSendingLoraData();
+    void            finishSendingLoraData();
+    boolean         publishNodeDataInProgress(){return _nodeHasDataToRead;}
         
 };
 extern BlinkyLoraNodeClass BlinkyLoraNode;
