@@ -225,7 +225,7 @@ void BlinkyLoraNodeClass::onCadDone(bool signalDetected)
 {
   if (signalDetected)
   {
-    delay(10);
+    delay(random(500, 1500));
     BlinkyLoraNode.beginSendingLoraData();
     return;
   }
@@ -240,6 +240,7 @@ void loop()
 }
 void setup()
 {
+  randomSeed(analogRead(A0));
   setupLora();
 }
 void loop1() 
